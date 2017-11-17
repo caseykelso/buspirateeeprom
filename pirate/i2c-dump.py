@@ -68,13 +68,13 @@ if __name__ == '__main__':
     
     print "Dumping %d bytes out of the EEPROM." % args.size
 
-    tmp = [0xa0,  0x0 , 0x0]
+    tmp = [0xa2,  0x0 , 0x0]
     print tmp
     i2c_write_data(tmp)
     
     # Start dumping
     for block in range(0, args.size, args.bsize):
-        args.outfile.write("".join([chr(x) for x in i2c_read_bytes([0xa1], args.bsize, True)]))
+        args.outfile.write("".join([chr(x) for x in i2c_read_bytes([0xa3], args.bsize, True)]))
     args.outfile.close()
 
     print "Reset Bus Pirate to user terminal: "

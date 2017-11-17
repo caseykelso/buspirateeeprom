@@ -11,16 +11,16 @@ import time
 def i2c_write_byte(address, data):
     haddress = address >> 8;
     laddress = address&0xff
-    i2c.send_start_bit()
-    i2c.bulk_trans(1, [0xa0])
-    i2c.bulk_trans(1, [haddress])
-    i2c.bulk_trans(1, [laddress])
-    i2c.bulk_trans(1, [ord(data)])
+#    i2c.send_start_bit()
+#    i2c.bulk_trans(1, [0xa2])
+#    i2c.bulk_trans(1, [haddress])
+#    i2c.bulk_trans(1, [laddress])
+#    i2c.bulk_trans(1, [ord(data)])
 #    print "data: %s" % hex(ord(data))
 #    print "address: %s" % hex(address)
 #    print "haddress: %s" % hex(haddress)
 #    print "lhaddress: %s" % hex(laddress)
-    i2c.send_stop_bit()
+#    i2c.send_stop_bit()
 
 
 def i2c_read_bytes(address, numbytes, ret=False):
