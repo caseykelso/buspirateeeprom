@@ -6,21 +6,20 @@ Adapted from i2c-test.py from Peter Huewe
 import sys
 from pyBusPirateLite.I2C import *
 import argparse
+import time
 
-
-def i2c_write_data(blah):
-#    haddress = address >> 8;
-#    laddress = address << 8;
+def i2c_write_byte(address, data):
+    haddress = address >> 8;
+    laddress = address&0xff
     i2c.send_start_bit()
-    i2c.bulk_trans(5, [0xa0, 0x0, 0x0, 0xff, 0xff]) 
-    print "write"
-#    i2c.bulk_trans(len(data),data)
-#    i2c.bulk_trans(1, [haddress])
-#    i2c.bulk_trans(1, [laddress])
-#    i2c.bulk_trans(1, [0x0])
-#    i2c.bulk_trans(1, [0x0])
-#    i2c.bulk_trans(3, [1, 2, 3])
-#    i2c.bulk_trans(len(data),data)
+    i2c.bulk_trans(1, [0xa0])
+    i2c.bulk_trans(1, [haddress])
+    i2c.bulk_trans(1, [laddress])
+    i2c.bulk_trans(1, [ord(data)])
+#    print "data: %s" % hex(ord(data))
+#    print "address: %s" % hex(address)
+#    print "haddress: %s" % hex(haddress)
+#    print "lhaddress: %s" % hex(laddress)
     i2c.send_stop_bit()
 
 
@@ -74,22 +73,17 @@ if __name__ == '__main__':
     if not i2c.set_speed(I2CSpeed._400KHZ):
         print "Failed to set I2C Speed."
         sys.exit()
-    i2c.timeout(0.2)
+    i2c.timeout(1)
     
     print "Writing %d bytes out of the EEPROM." % args.size
 
    
     # Start dumping
 #    for block in range(0, args.size, args.bsize):
-
-    tmp = [0xa0,  0x0 , 0x0]
-
-    for b in range(0, 1, args.bsize):
-        tmpout=""
-        tmpout.join((args.inputfile.read(1)))
-        print tmpout
-
-    i2c_write_data(1)
+    i = 0
+    for i in range(0, args.size):
+        print i
+        i2c_write_byte(i, args.inputfile.read(1))
     args.inputfile.close()
 
     print "Reset Bus Pirate to user terminal: "

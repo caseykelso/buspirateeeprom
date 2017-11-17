@@ -75,7 +75,6 @@ if __name__ == '__main__':
     # Start dumping
     for block in range(0, args.size, args.bsize):
         args.outfile.write("".join([chr(x) for x in i2c_read_bytes([0xa1], args.bsize, True)]))
-#        args.outfile.write("".join([chr(x) for x in i2c_read_bytes([0xa1 + ((block / args.bsize) << 1)], args.bsize, True)]))
     args.outfile.close()
 
     print "Reset Bus Pirate to user terminal: "
