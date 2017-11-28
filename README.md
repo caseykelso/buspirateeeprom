@@ -9,7 +9,7 @@
 
 ## Microchip 24AA512
 
-[[assets/24AA512.png]]
+![24AA512](assets/24AA512.png)
 
 | 24AA512 Pin   | BusPirate Pin |
 | ------------- | --------------|
