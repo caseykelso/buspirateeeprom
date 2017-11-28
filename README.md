@@ -28,15 +28,19 @@ Bus 001 Device 006: ID 0403:6001 Future Technology Devices International, Ltd FT
 
 <img src="assets/24AA512.png" width="300" >
 Figure - 1 - Microchip 24AA512 Pinout
-<br/>
+&nbsp;
+
 
 <img src="assets/buspiratepinout0.png" width="300" >
 Figure - 2 - BusPirate Header Pinout
-<br/>
+&nbsp;
+
 
 <img src="assets/buspiratepinout1.png" width="300" >
 Figure - 3 - BusPirate Logical Signals Table - Operating Mode
-<br/>
+&nbsp;
+
+
 
 | 24AA512 Pin   | BusPirate Pin |
 | ------------- | --------------|
