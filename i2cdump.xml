@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+   <remote name="githubhttps"
+           fetch="https://github.com" />
+
+   <remote name="githubssh"
+           fetch="ssh://git@github.com" />
+
+   <remote name="gitlab"  
+           fetch="https://gitlab.kitware.com" />
+
+   <project name="DensityCo/buspirateeeprom"        remote="githubssh"    path="."                 revision="master" upstream="master" />
+   <project name="juhasch/pyBusPirateLite"          remote="githubhttps"  path="buspiratelite"     revision="master" upstream="master"/>
+
+</manifest>
+

@@ -22,6 +22,13 @@ lsusb
 Bus 001 Device 006: ID 0403:6001 Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
 ```
 
+# Checkout Project
+```bash
+mkdir i2cdump
+repo init -m i2cdump.xml -u ssh://git@github.com/DensityCo/buspirateeeprom  -b master
+repo sync
+```
+
 # Wiring Diagram
 
 ## Microchip 24AA512
@@ -53,4 +60,6 @@ Figure - 3 - BusPirate Logical Signals Table - Operating Mode
 | Pin7 - WP     | GND           |
 | Pin8 - VCC    | 3V3           |
 
+# Manually Testing EEPROM Connection
+1. Open /dev/ttyUSB0 serial port with your favorite terminal emulator. Minicom or screen are good choices.
 
